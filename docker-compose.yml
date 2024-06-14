@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: games-postgres
+    ports:
+      - "5432"
+    environment:
+      - POSTGRES_DB=app
+      - POSTGRES_USER=gamesuser
+      - POSTGRES_PASSWORD=gamespass
+    networks:
+      - games-network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+networks:
+  games-network:
+
+volumes:
+  games-postgres-data: {}
