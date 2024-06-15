@@ -5,7 +5,7 @@ services:
     image: postgres:latest
     container_name: games-postgres
     ports:
-      - "5432"
+      - "8032:5432"
     environment:
       - POSTGRES_DB=app
       - POSTGRES_USER=gamesuser
@@ -13,7 +13,7 @@ services:
     networks:
       - games-network
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - games-postgres-data:/var/lib/postgresql/data
 
 networks:
   games-network:
